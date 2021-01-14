@@ -1,7 +1,7 @@
 {
-	"name": "markdown-get",
+	"name": "katex-render",
 	"version": "1.0.0",
-	"main": "index.js",
+	"main": "index.ts",
 	"author": "Amadeus_vn <git@amas.dev>",
 	"license": "MIT",
 	"scripts": {
