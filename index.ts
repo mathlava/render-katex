@@ -32,4 +32,4 @@ app.get('/tex/:source', async function (req, res) {
 	res.writeHead(200, {'Content-Type': 'image/png'})
 	res.end(image, 'binary')
 })
-app.listen(3000)
+app.listen(8080)
