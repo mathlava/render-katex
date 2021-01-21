@@ -24,4 +24,4 @@ align-items: center;
 `
 }
 app.get('/tex/:source', (req, res) => res.send(source(req.params.source)))
-app.listen(8080)
+app.listen(process.env.PORT || 5000)
