@@ -23,5 +23,12 @@ align-items: center;
 </html>
 `
 }
-app.get('/tex/:source', (req, res) => res.send(source(req.params.source)))
+app.get('/tex/:source', (req, res) => {
+	try {
+		res.send(source(req.params.source))
+	} catch (e) {
+		res.status(400)
+		res.send(e.message)
+	}
+})
 app.listen(process.env.PORT || 5000)
