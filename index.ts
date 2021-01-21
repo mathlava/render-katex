@@ -1,7 +1,7 @@
-import katex from 'katex'
+import {renderToString} from 'katex'
 import express from 'express'
 const app = express()
-function source(markdown: string) {
+function source(tex: string) {
 	return `
 <html>
 <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" /></head>
@@ -16,7 +16,7 @@ justify-content: center;
 align-items: center;
 }
 </style>
-<body><div>${katex.renderToString(markdown, {
+<body><div>${renderToString(tex, {
 		displayMode: true
 	})
 		}</div></body>
@@ -24,4 +24,4 @@ align-items: center;
 `
 }
 app.get('/tex/:source', (req, res) => res.send(source(req.params.source)))
-app.listen(3000)
+app.listen(8080)
