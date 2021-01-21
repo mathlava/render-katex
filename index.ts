@@ -1,6 +1,5 @@
 import katex from 'katex'
 import express from 'express'
-import html2im from 'node-html-to-image'
 const app = express()
 function source(markdown: string) {
 	return `
@@ -17,19 +16,12 @@ justify-content: center;
 align-items: center;
 }
 </style>
-<body><div>${
-		katex.renderToString(markdown, {
-			displayMode: true
-		})
+<body><div>${katex.renderToString(markdown, {
+		displayMode: true
+	})
 		}</div></body>
 </html>
 `
 }
-app.get('/tex/:source', async function (req, res) {
-	const image = await html2im({
-		html: source(req.params.source)
-	})
-	res.writeHead(200, {'Content-Type': 'image/png'})
-	res.end(image, 'binary')
-})
-app.listen(8080)
+app.get('/tex/:source', (req, res) => res.send(source(req.params.source)))
+app.listen(3000)
