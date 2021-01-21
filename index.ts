@@ -5,7 +5,8 @@ const app = express()
 function source(tex: string) {
 	return `
 <html>
-<head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" /></head>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" />
 <style>
 body {
 font-size: 100px;
@@ -14,6 +15,7 @@ justify-content: center;
 align-items: center;
 }
 </style>
+</head>
 <body><div>${renderToString(tex, {
 		displayMode: true
 	})
